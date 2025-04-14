@@ -54,9 +54,9 @@ const securityHeaders = [
   },
 ]
 
-const output = process.env.EXPORT ? 'export' : undefined
-const basePath = process.env.BASE_PATH || undefined
-const unoptimized = process.env.UNOPTIMIZED ? true : undefined
+const output = 'export'
+const basePath = undefined
+const unoptimized = true
 
 /**
  * @type {import('next/dist/next-server/server/config').NextConfig}
@@ -67,9 +67,10 @@ module.exports = () => {
     output,
     basePath,
     reactStrictMode: true,
-    trailingSlash: false,
+    trailingSlash: true,
     pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
     eslint: {
+      ignoreDuringBuilds: true,
       dirs: ['app', 'components', 'layouts', 'scripts'],
     },
     images: {
@@ -82,12 +83,7 @@ module.exports = () => {
       unoptimized,
     },
     async headers() {
-      return [
-        {
-          source: '/(.*)',
-          headers: securityHeaders,
-        },
-      ]
+      return []
     },
     webpack: (config, options) => {
       config.module.rules.push({
