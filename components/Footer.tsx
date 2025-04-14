@@ -27,6 +27,7 @@ export default function Footer() {
           <Link href="/">{siteMetadata.title}</Link>
         </div>
         <div className="mb-8 flex flex-col gap-2 text-center text-sm text-gray-500 dark:text-gray-400">
+          Yes, it's vibe-coded.
           <Link href="https://github.com/timlrx/tailwind-nextjs-starter-blog">
             Reimagined from: Tailwind Nextjs Theme
           </Link>

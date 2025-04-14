@@ -2,6 +2,7 @@
 const siteMetadata = {
   title: 'alfanzain.github.io',
   author: 'Alfan Zain',
+  author_full: 'Alfan Zain Putra',
   headerTitle: 'Alfan Zain',
   description: 'Software engineer',
   language: 'en-us',

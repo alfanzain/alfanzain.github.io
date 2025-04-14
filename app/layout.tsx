@@ -3,7 +3,7 @@ import 'pliny/search/algolia.css'
 import 'remark-github-blockquote-alert/alert.css'
 import './background.css'
 
-import { Work_Sans } from 'next/font/google'
+import { Work_Sans, Pixelify_Sans } from 'next/font/google'
 import { Analytics, AnalyticsConfig } from 'pliny/analytics'
 import { SearchProvider, SearchConfig } from 'pliny/search'
 import Header from '@/components/Header'
@@ -19,6 +19,13 @@ const work_sans = Work_Sans({
   weight: ['400', '500', '600', '700'],
   display: 'swap',
   variable: '--font-work-sans',
+})
+
+const pixelify_sans = Pixelify_Sans({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  display: 'swap',
+  variable: '--font-pixelify-sans',
 })
 
 export const metadata: Metadata = {
@@ -67,7 +74,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang={siteMetadata.language}
-      className={`${work_sans.variable} scroll-smooth`}
+      className={`${work_sans.variable} ${pixelify_sans.variable} scroll-smooth`}
       suppressHydrationWarning
     >
       <link

@@ -6,7 +6,7 @@ import siteMetadata from '@/data/siteMetadata'
 import { formatDate } from 'pliny/utils/formatDate'
 import NewsletterForm from 'pliny/ui/NewsletterForm'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const MAX_DISPLAY = 5
 
@@ -29,6 +29,22 @@ const techStack = {
 
 export default function Home({ posts }) {
   const [activeCategory, setActiveCategory] = useState('all')
+  const [isNight, setIsNight] = useState(false)
+  const [isHovering, setIsHovering] = useState(false)
+
+  useEffect(() => {
+    // Check if it's night (between 7PM and 6AM)
+    const checkIfNight = () => {
+      const hours = new Date().getHours()
+      setIsNight(hours >= 19 || hours < 6)
+    }
+
+    checkIfNight()
+    // Update the night status every minute
+    const interval = setInterval(checkIfNight, 60000)
+
+    return () => clearInterval(interval)
+  }, [])
 
   const displayTechStack = activeCategory === 'all'
     ? [...new Set(Object.values(techStack).flat())]
@@ -58,6 +74,14 @@ export default function Home({ posts }) {
 
   return (
     <>
+      {/* Add custom animations */}
+      <style jsx global>{`
+        @keyframes pixel-pulse {
+          0%, 100% { opacity: 0.8; }
+          50% { opacity: 1; }
+        }
+      `}</style>
+
       <div className="mt-10 flex justify-center py-2">
         <div className="px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full text-sm text-white border border-white/10 shadow-lg flex items-center">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -69,21 +93,59 @@ export default function Home({ posts }) {
           <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
-          UTC +7
+          UTC+7
         </div>
       </div>
 
       {/* Hero Section */}
       <div className="mt-6 relative flex flex-col items-center justify-center min-h-[calc(100vh-180px)] px-4 sm:px-6 text-center">
-        <h1 className="text-5xl font-extrabold text-white sm:text-6xl md:text-7xl drop-shadow-lg">
-          {siteMetadata.author}
+        <h1
+          className={`text-5xl font-extrabold sm:text-6xl md:text-7xl drop-shadow-lg transition-all duration-500 ease-in-out ${isHovering
+            ? 'text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 transform -translate-y-1 scale-105'
+            : 'text-white'
+            }`}
+          onMouseEnter={() => setIsHovering(true)}
+          onMouseLeave={() => setIsHovering(false)}
+          style={{
+            textShadow: isHovering ? '0 0 15px rgba(255,255,255,0.8), 0 0 30px rgba(255,0,255,0.4)' : 'none',
+            transform: isHovering ? 'translateY(-4px)' : 'none',
+            transition: 'all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+            fontFamily: isHovering ? 'var(--font-pixelify-sans)' : 'inherit',
+            letterSpacing: isHovering ? '1px' : 'normal',
+            fontWeight: isHovering ? '700' : 'inherit',
+            imageRendering: 'pixelated'
+          }}
+        >
+          {isNight && isHovering ? siteMetadata.author_full : siteMetadata.author}
+          {isHovering && (
+            <>
+              <span className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg opacity-20 blur-xl animate-pulse -z-10"></span>
+              {/* Add pixel stars for Undertale feel */}
+              {[...Array(8)].map((_, i) => (
+                <span
+                  key={i}
+                  className="absolute block bg-yellow-200"
+                  style={{
+                    width: '4px',
+                    height: '4px',
+                    top: `${Math.random() * 150 - 50}%`,
+                    left: `${Math.random() * 150 - 30}%`,
+                    opacity: 0.7 + Math.random() * 0.3,
+                    animation: `pixel-pulse ${1 + Math.random() * 2}s infinite alternate`,
+                    animationDelay: `${Math.random() * 2}s`,
+                    imageRendering: 'pixelated'
+                  }}
+                ></span>
+              ))}
+            </>
+          )}
         </h1>
         <p className="mt-6 max-w-2xl mx-auto text-xl text-white drop-shadow-md">
           Software Engineer
         </p>
 
         <div className="mt-8 max-w-2xl mx-auto text-white/90">
-          <p className="text-lg drop-shadow-sm">
+          <p className="text-md drop-shadow-sm">
             Experienced Fullstack Engineer with 6 years of expertise in scalable web applications and microservices.
             Proficient in <span className="text-blue-400 font-bold">Laravel</span>, <span className="text-green-400 font-bold">TypeScript</span>, and <span className="text-yellow-400 font-bold">Go</span>, with a track record of impactful solutions in government,
             education, and healthcare. Developed complex systems like a government app, Telegram bots, and
