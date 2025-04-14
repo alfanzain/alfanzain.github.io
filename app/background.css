@@ -1,0 +1,37 @@
+/* Top background - only visible at the top of the page */
+.bg-top-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.bg-top-wrapper img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: top;
+}
+
+/* Bottom background - only visible at the bottom of the page */
+.bg-bottom-wrapper {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.bg-bottom-wrapper img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: bottom;
+}
