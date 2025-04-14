@@ -30,8 +30,8 @@ export default function Footer() {
           <Link href="https://github.com/timlrx/tailwind-nextjs-starter-blog">
             Reimagined from: Tailwind Nextjs Theme
           </Link>
-          <Link href="https://github.com/timlrx/tailwind-nextjs-starter-blog">
-            Inspired by: Tailwind Nextjs Theme
+          <Link href="https://honghong.me/">
+            Inspired by: Nelson Lai
           </Link>
         </div>
       </div>

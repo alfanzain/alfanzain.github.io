@@ -8,48 +8,51 @@ import SearchButton from './SearchButton'
 
 const Header = () => {
   return (
-    <header className="sticky top-0 z-50 w-full bg-transparent py-2">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="flex items-center justify-between py-3">
-          {/* Logo and site title */}
-          <Link href="/" aria-label={siteMetadata.headerTitle}>
-            <div className="flex items-center">
-              {/* <div className="mr-3">
-                <Logo />
-              </div> */}
-              {typeof siteMetadata.headerTitle === 'string' ? (
-                <span className="font-medium text-white text-xl hidden sm:block">
-                  {/* {siteMetadata.headerTitle} */}
-                  alfanzain.github.io
-                </span>
-              ) : (
-                siteMetadata.headerTitle
-              )}
-            </div>
-          </Link>
+    <>
+      <div className="h-8"></div> {/* Spacer to prevent content jump */}
+      <header className="fixed top-3 left-0 right-0 z-50 mx-auto max-w-7xl bg-black/20 backdrop-blur-sm border border-white/5">
+        <div className="mx-auto px-4 sm:px-6">
+          <div className="flex items-center justify-between py-2">
+            {/* Logo and site title */}
+            <Link href="/" aria-label={siteMetadata.headerTitle}>
+              <div className="flex items-center">
+                {/* <div className="mr-3">
+                  <Logo />
+                </div> */}
+                {typeof siteMetadata.headerTitle === 'string' ? (
+                  <span className="text-white text-sm hidden sm:block">
+                    {/* {siteMetadata.headerTitle} */}
+                    alfanzain.github.io
+                  </span>
+                ) : (
+                  siteMetadata.headerTitle
+                )}
+              </div>
+            </Link>
 
-          {/* Navigation links */}
-          <nav className="flex items-center text-base leading-5">
-            <div className="hidden sm:flex space-x-6">
-              {headerNavLinks.map((link) => (
-                <Link
-                  key={link.title}
-                  href={link.href}
-                  className="font-medium text-white hover:text-white/80 transition-colors"
-                >
-                  {link.title}
-                </Link>
-              ))}
-            </div>
-            <div className="flex items-center space-x-3 ml-6">
-              {/* <SearchButton /> */}
-              <ThemeSwitchButOnlySwitchDark />
-              <MobileNav />
-            </div>
-          </nav>
+            {/* Navigation links */}
+            <nav className="flex items-center text-xs">
+              <div className="hidden sm:flex space-x-3">
+                {headerNavLinks.map((link) => (
+                  <Link
+                    key={link.title}
+                    href={link.href}
+                    className="text-gray-200 hover:text-white"
+                  >
+                    {link.title}
+                  </Link>
+                ))}
+              </div>
+              <div className="flex items-center space-x-2 ml-3">
+                {/* <SearchButton /> */}
+                <ThemeSwitchButOnlySwitchDark />
+                <MobileNav />
+              </div>
+            </nav>
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
+    </>
   )
 }
 
