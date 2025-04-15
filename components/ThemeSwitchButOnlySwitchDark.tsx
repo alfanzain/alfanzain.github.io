@@ -33,7 +33,7 @@ const ThemeSwitchButOnlySwitchDark = () => {
     "* The light has ABANDONED this world.",
   ]
 
-  const finalMessage = "* Despite that, you are still here."
+  const finalMessage = "* Despite everything, it's still you."
 
   // When mounted on client, now we can show the UI
   useEffect(() => setMounted(true), [])
