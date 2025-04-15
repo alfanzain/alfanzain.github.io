@@ -62,9 +62,6 @@ const ThemeSwitchButOnlySwitchDark = () => {
     setShowMessage(true)
     setCharIndex(0)
     setDisplayText('')
-
-    // Keep message visible longer to allow for typing animation
-    setTimeout(() => setShowMessage(false), 4500)
   }
 
   return (
