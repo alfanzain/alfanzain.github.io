@@ -82,7 +82,17 @@ const ThemeSwitchButOnlySwitchDark = () => {
           <div
             className="absolute top-full mt-2 w-72 p-4 
                     bg-gray-900 text-gray-300 border-2 border-gray-700 rounded-md shadow-xl
-                    font-medium text-base messageBox"
+                    messageBox"
+            style={{
+              fontFamily: 'var(--font-pixelify-sans)',
+              letterSpacing: '0.5px',
+              imageRendering: 'pixelated',
+              color: '#d4f1f9',
+              textShadow: '0 0 5px rgba(120, 200, 255, 0.7)',
+              lineHeight: '1.5',
+              borderColor: '#444870',
+              borderWidth: '2px'
+            }}
           >
             {displayText}
           </div>

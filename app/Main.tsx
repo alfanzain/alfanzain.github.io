@@ -100,24 +100,24 @@ export default function Home({ posts }) {
       {/* Hero Section */}
       <div className="mt-6 relative flex flex-col items-center justify-center min-h-[calc(100vh-180px)] px-4 sm:px-6 text-center">
         <h1
-          className={`text-5xl font-extrabold sm:text-6xl md:text-7xl drop-shadow-lg transition-all duration-500 ease-in-out ${isHovering
+          className={`text-5xl font-extrabold sm:text-6xl md:text-7xl drop-shadow-lg transition-all duration-500 ease-in-out ${isHovering && isNight
             ? 'text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 transform -translate-y-1 scale-105'
             : 'text-white'
             }`}
           onMouseEnter={() => setIsHovering(true)}
           onMouseLeave={() => setIsHovering(false)}
           style={{
-            textShadow: isHovering ? '0 0 15px rgba(255,255,255,0.8), 0 0 30px rgba(255,0,255,0.4)' : 'none',
-            transform: isHovering ? 'translateY(-4px)' : 'none',
+            textShadow: isHovering && isNight ? '0 0 15px rgba(255,255,255,0.8), 0 0 30px rgba(255,0,255,0.4)' : 'none',
+            transform: isHovering && isNight ? 'translateY(-4px)' : 'none',
             transition: 'all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
-            fontFamily: isHovering ? 'var(--font-pixelify-sans)' : 'inherit',
-            letterSpacing: isHovering ? '1px' : 'normal',
-            fontWeight: isHovering ? '700' : 'inherit',
+            fontFamily: isHovering && isNight ? 'var(--font-pixelify-sans)' : 'inherit',
+            letterSpacing: isHovering && isNight ? '1px' : 'normal',
+            fontWeight: isHovering && isNight ? '700' : 'inherit',
             imageRendering: 'pixelated'
           }}
         >
           {isNight && isHovering ? siteMetadata.author_full : siteMetadata.author}
-          {isHovering && (
+          {isHovering && isNight && (
             <>
               <span className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg opacity-20 blur-xl animate-pulse -z-10"></span>
               {/* Add pixel stars for Undertale feel */}
