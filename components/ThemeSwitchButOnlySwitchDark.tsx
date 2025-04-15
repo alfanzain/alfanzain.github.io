@@ -22,6 +22,7 @@ const ThemeSwitchButOnlySwitchDark = () => {
   const [messageIndex, setMessageIndex] = useState(0)
   const [displayText, setDisplayText] = useState('')
   const [charIndex, setCharIndex] = useState(0)
+  const [shownMessages, setShownMessages] = useState<number[]>([])
   const { setTheme, resolvedTheme } = useTheme()
 
   const darkMessages = [
@@ -30,8 +31,9 @@ const ThemeSwitchButOnlySwitchDark = () => {
     "* Stars shine BRIGHTER in darkness.",
     "* SUNSHINE is no more. Only shadows remain.",
     "* The light has ABANDONED this world.",
-    "* Despite that, you are still here.",
   ]
+
+  const finalMessage = "* Despite that, you are still here."
 
   // When mounted on client, now we can show the UI
   useEffect(() => setMounted(true), [])
@@ -44,7 +46,7 @@ const ThemeSwitchButOnlySwitchDark = () => {
       return;
     }
 
-    const message = darkMessages[messageIndex];
+    const message = shownMessages.length === darkMessages.length ? finalMessage : darkMessages[messageIndex];
 
     if (charIndex < message.length) {
       const typingTimer = setTimeout(() => {
@@ -54,14 +56,39 @@ const ThemeSwitchButOnlySwitchDark = () => {
 
       return () => clearTimeout(typingTimer);
     }
-  }, [showMessage, charIndex, messageIndex, darkMessages]);
+  }, [showMessage, charIndex, messageIndex, darkMessages, finalMessage, shownMessages]);
 
   const handleClick = () => {
     setTheme('dark')
-    setMessageIndex(Math.floor(Math.random() * darkMessages.length))
-    setShowMessage(true)
-    setCharIndex(0)
-    setDisplayText('')
+
+    if (shownMessages.length === darkMessages.length) {
+      // All messages have been shown, display final message
+      setMessageIndex(-1) // Use -1 to indicate final message
+      setShowMessage(true)
+      setCharIndex(0)
+      setDisplayText('')
+      return
+    }
+
+    // Find messages that haven't been shown yet
+    const availableIndices = darkMessages
+      .map((_, index) => index)
+      .filter(index => !shownMessages.includes(index))
+
+    // If we have messages left to show
+    if (availableIndices.length > 0) {
+      // Get random index from available messages
+      const randomIndex = Math.floor(Math.random() * availableIndices.length)
+      const newMessageIndex = availableIndices[randomIndex]
+
+      setMessageIndex(newMessageIndex)
+      setShowMessage(true)
+      setCharIndex(0)
+      setDisplayText('')
+
+      // Mark this message as shown
+      setShownMessages(prev => [...prev, newMessageIndex])
+    }
   }
 
   return (
