@@ -195,24 +195,18 @@ export default function Home({ posts }) {
         </div>
 
         <div className="mt-10 mb-10 flex flex-col gap-4">
-          <div className="opacity-50 cursor-not-allowed">
-            <span
-              className="group px-8 py-3 rounded-md bg-white/10 backdrop-blur-md text-white font-medium border border-white/10 shadow-lg relative overflow-hidden inline-block"
-            >
-              Read Blog{" "}
-              <span className="inline-flex items-center">
-                <span className="text-yellow-300 animate-bounce">✨</span>
-                <span className="relative ml-1">
-                  <span className="whitespace-nowrap">
-                    <span className="bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent animate-pulse">
-                      coming soon
-                    </span>
-                  </span>
-                  <span className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-pink-500 to-transparent animate-pulse"></span>
-                </span>
-              </span>
-            </span>
-          </div>
+          <Link
+            href="https://alfanzain.wordpress.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-8 py-3 rounded-md bg-white/10 backdrop-blur-md text-white font-medium hover:bg-white/20 transition-colors border border-white/10 shadow-lg flex items-center justify-center"
+          >
+            Read Blog
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2 opacity-70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+            <span className="text-xs ml-1.5 opacity-70">(WordPress)</span>
+          </Link>
           <Link
             href="https://alfanzain.notion.site/alfanzain/Alfan-Zain-s-Portfolio-f021212cc2e840aba33826efc6032731"
             target="_blank"
