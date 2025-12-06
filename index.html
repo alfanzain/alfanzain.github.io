@@ -77,9 +77,9 @@
       content="https://alfanzain.github.io/static/images/twitter-card.png"
     />
 
-    <!-- Tailwind CDN + CSS custom (berisi @layer utilities: dashboard-bg, dll) -->
+    <!-- Tailwind CDN + CSS custom -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="index.css" />    
+    <link rel="stylesheet" href="index.css" />
   </head>
 
   <body class="text-white antialiased min-h-screen dashboard-bg">
@@ -132,7 +132,7 @@
                 </div>
 
                 <div class="flex items-center space-x-2 ml-3">
-                  <!-- dummy theme button, bisa dihook nanti -->
+                  <!-- dummy theme button -->
                   <button
                     aria-label="Theme toggle"
                     class="flex items-center justify-center hover:scale-110 transition-transform duration-200"
@@ -140,7 +140,7 @@
                     <svg class="h-6 w-6 text-white/70" viewBox="0 0 24 24"></svg>
                   </button>
 
-                  <!-- mobile menu icon (non-functional sekarang, opsional kalau mau dibuat) -->
+                  <!-- mobile menu icon -->
                   <button aria-label="Toggle Menu" class="sm:hidden">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -214,7 +214,7 @@
             <h1
               class="text-5xl font-extrabold sm:text-6xl md:text-7xl drop-shadow-lg text-white"
             >
-              Alfan Zain
+              Hello! I'm Alfan Zain
             </h1>
 
             <p class="mt-6 max-w-2xl mx-auto text-xl text-white drop-shadow-md">
@@ -222,17 +222,11 @@
             </p>
 
             <div class="mt-8 max-w-2xl mx-auto text-white/90">
-              <p class="text-md drop-shadow-sm leading-relaxed">
-                Experienced Fullstack Engineer with 6 years of expertise in
-                scalable web applications and microservices. Proficient in
-                <span class="text-blue-400 font-bold">Laravel</span>,
-                <span class="text-green-400 font-bold">TypeScript</span>, and
-                <span class="text-yellow-400 font-bold">Go</span>, with a
-                track record of impactful solutions in government, education,
-                and healthcare. Developed complex systems like a government
-                app, Telegram bots, and real-time event platforms. Passionate
-                about delivering innovative, user-focused solutions that meet
-                technical and business needs.
+              <p class="text-md drop-shadow-sm leading-relaxed mb-2">
+                I’m a software engineer who enjoys building scalable web applications, API services, and cloud-based solutions. Passionate about problem solving and delivering impact through technology.
+              </p>
+              <p class="text-md drop-shadow-sm leading-relaxed font-bold">
+                I’m open to new opportunities that allow me to contribute my skills, collaborate with great teams, and keep pushing boundaries in technology.
               </p>
             </div>
 
@@ -318,9 +312,7 @@
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 >
-                  <path
-                    d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"
-                  ></path>
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
                   <path
                     d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
                   ></path>
@@ -334,9 +326,9 @@
                 class="px-8 py-3 rounded-md bg-white/10 backdrop-blur-md text-white font-medium hover:bg-white/20 transition-colors border border-white/10 shadow-lg flex items-center justify-center"
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://alfanzain.wordpress.com/"
+                href="https://medium.com/@alfanzain"
               >
-                Read Blog
+                Read My Medium
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -351,7 +343,6 @@
                     d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
                   ></path>
                 </svg>
-                <span class="text-xs ml-1.5 opacity-70">(WordPress)</span>
               </a>
 
               <a
@@ -360,7 +351,7 @@
                 rel="noopener noreferrer"
                 href="https://alfanzain.notion.site/alfanzain/Alfan-Zain-s-Portfolio-f021212cc2e840aba33826efc6032731"
               >
-                View Projects
+                View My Projects
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -375,9 +366,69 @@
                     d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
                   ></path>
                 </svg>
-                <span class="text-xs ml-1.5 opacity-70">(Notion)</span>
               </a>
             </div>
+
+            <!-- CONTRIBUTIONS -->
+<div class="mt-10 mb-14 w-full max-w-3xl mx-auto">
+  <h3 class="text-xl font-bold text-white mb-3 text-center">
+    Open Source Contributions
+  </h3>
+  <p class="text-sm text-white/80 text-center mb-6">
+    Here is my contributions so far 👇
+  </p>
+
+  <div class="grid gap-4 sm:grid-cols-2">
+    <!-- Repo Card -->
+    <a
+      href="https://github.com/VoltAgent/voltagent"
+      target="_blank"
+      class="block rounded-xl border border-white/10 bg-white/5 backdrop-blur-md p-4 hover:bg-white/10 transition-all hover:shadow-lg hover:shadow-amber-400/10"
+    >
+      <div class="flex items-center justify-between mb-1.5">
+        <h4 class="text-sm font-semibold text-white">VoltAgent</h4>
+        <span class="text-xs text-amber-200/80">⭐ 3.3k</span>
+      </div>
+      <p class="text-xs text-white/60">VoltAgent/voltagent</p>
+      <p class="mt-2 text-xs text-white/70 leading-relaxed">
+        Contributions on autonomous agent tools and ecosystem.
+      </p>
+    </a>
+
+    <!-- Repo Card -->
+    <a
+      href="https://github.com/goravel/goravel"
+      target="_blank"
+      class="block rounded-xl border border-white/10 bg-white/5 backdrop-blur-md p-4 hover:bg-white/10 transition-all hover:shadow-lg hover:shadow-cyan-400/10"
+    >
+      <div class="flex items-center justify-between mb-1.5">
+        <h4 class="text-sm font-semibold text-white">Goravel</h4>
+        <span class="text-xs text-cyan-200/80">⭐ 4k</span>
+      </div>
+      <p class="text-xs text-white/60">goravel/goravel</p>
+      <p class="mt-2 text-xs text-white/70 leading-relaxed">
+        Laravel-style Go framework — contributions improving developer experience.
+      </p>
+    </a>
+
+    <!-- Repo Card -->
+    <a
+      href="https://github.com/yagop/node-telegram-bot-api"
+      target="_blank"
+      class="block rounded-xl border border-white/10 bg-white/5 backdrop-blur-md p-4 hover:bg-white/10 transition-all hover:shadow-lg hover:shadow-violet-400/10 sm:col-span-2"
+    >
+      <div class="flex items-center justify-between mb-1.5">
+        <h4 class="text-sm font-semibold text-white">node-telegram-bot-api</h4>
+        <span class="text-xs text-violet-200/80">⭐ 9.1k</span>
+      </div>
+      <p class="text-xs text-white/60">yagop/node-telegram-bot-api</p>
+      <p class="mt-2 text-xs text-white/70 leading-relaxed">
+        Contributions in enhancing bot integrations and messaging tooling.
+      </p>
+    </a>
+  </div>
+</div>
+
           </div>
 
           <!-- FILTER + SKILLS -->
@@ -411,7 +462,6 @@
             </div>
 
             <div class="flex flex-wrap justify-center gap-2 max-w-3xl">
-              <!-- badges (tetap sama) -->
               <span
                 class="px-3 py-1 backdrop-blur-md rounded-full text-sm border shadow-lg bg-blue-400/20 text-blue-100 border-blue-400/30"
               >
